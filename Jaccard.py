@@ -27,6 +27,10 @@ print("Статистика после нормализации:")
 print(df_clean[['rating_norm', 'rew_norm', 'price_norm']].describe())
 print("\n")
 
+avg_price = df_clean['price'].mean()
+print(f"Средняя цена: {avg_price:.2f}")
+print("\n")
+
 def jaccard_similarity(list1, list2):
     """Возвращает долю общих элементов в двух списках."""
     set1 = set(list1) if isinstance(list1, list) else set()
@@ -38,7 +42,7 @@ def jaccard_similarity(list1, list2):
     return intersection / union if union != 0 else 0.0
 
 def euclidean_distance(row1, row2):
-    """Расстояние между двумя фильмами по нормализованным рейтингу и длительности."""
+    """Расстояние между двумя часами по нормализованным рейтингу и длительности."""
     return math.sqrt(
         (row1['rating_norm'] - row2['rating_norm'])**2 +
         (row1['rew_norm'] - row2['rew_norm'])**2 +
