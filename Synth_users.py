@@ -96,7 +96,7 @@ print("Генерация пользователей и оценок...")
 for user_type in user_types:
     print(f"  Создаём {user_type['count']} пользователей типа '{user_type['name']}'...")
     for _ in tqdm(range(user_type['count'])):
-        num_ratings = random.randint(30, 150)
+        num_ratings = random.randint(3, 65)
         sampled_watches = df.sample(n=min(num_ratings, len(df)))
         for idx, watch in sampled_watches.iterrows():
             brand_name = watch['brand_name']
